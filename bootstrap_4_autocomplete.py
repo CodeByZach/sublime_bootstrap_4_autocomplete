@@ -6,46 +6,46 @@ bootstrap_classes = ["active","alert","alert-danger","alert-dark","alert-dismiss
 
 
 class BootstrapCompletions(sublime_plugin.EventListener):
-    """
-    Provide tag completions for Bootstrap elements and data-uk attributes
-    """
-    def __init__(self):
+	"""
+	Provide tag completions for Bootstrap elements and data-uk attributes
+	"""
+	def __init__(self):
 
-        self.class_completions = [("%s \tBootstrap 4 Class" % s, s) for s in bootstrap_classes]
+		self.class_completions = [("%s \tBootstrap 4 Class" % s, s) for s in bootstrap_classes]
 
-    def on_query_completions(self, view, prefix, locations):
+	def on_query_completions(self, view, prefix, locations):
 
-        if view.match_selector(locations[0], "text.html string.quoted"):
+		if view.match_selector(locations[0], "text.html string.quoted"):
 
-            # Cursor is inside a quoted attribute
-            # Now check if we are inside the class attribute
+			# Cursor is inside a quoted attribute
+			# Now check if we are inside the class attribute
 
-            # max search size
-            LIMIT  = 250
+			# max search size
+			LIMIT  = 250
 
-            # place search cursor one word back
-            cursor = locations[0] - len(prefix) - 1
+			# place search cursor one word back
+			cursor = locations[0] - len(prefix) - 1
 
-            # dont start with negative value
-            start  = max(0, cursor - LIMIT - len(prefix))
+			# dont start with negative value
+			start  = max(0, cursor - LIMIT - len(prefix))
 
-            # get part of buffer
-            line   = view.substr(sublime.Region(start, cursor))
+			# get part of buffer
+			line   = view.substr(sublime.Region(start, cursor))
 
-            # split attributes
-            parts  = line.split('=')
+			# split attributes
+			parts  = line.split('=')
 
-            # is the last typed attribute a class attribute?
-            if len(parts) > 1 and parts[-2].strip().endswith("class"):
-                return self.class_completions
-            else:
-                return []
-        elif view.match_selector(locations[0], "text.html meta.tag - text.html punctuation.definition.tag.begin"):
+			# is the last typed attribute a class attribute?
+			if len(parts) > 1 and parts[-2].strip().endswith("class"):
+				return self.class_completions
+			else:
+				return []
+		elif view.match_selector(locations[0], "text.html meta.tag - text.html punctuation.definition.tag.begin") and hasattr(self, 'data_completions'):
 
-            # Cursor is in a tag, but not inside an attribute, i.e. <div {here}>
-            # This one is easy, just return completions for the data-uk-* attributes
-            return self.data_completions
+			# Cursor is in a tag, but not inside an attribute, i.e. <div {here}>
+			# This one is easy, just return completions for the data-uk-* attributes
+			return self.data_completions
 
-        else:
+		else:
 
-            return []
+			return []
