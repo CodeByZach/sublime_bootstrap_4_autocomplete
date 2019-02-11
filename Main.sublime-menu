@@ -1,0 +1,56 @@
+[
+	{
+		"id": "preferences",
+		"caption": "Preferences",
+		"mnemonic": "n",
+		"children":
+		[
+			{
+				"id": "package-settings",
+				"caption": "Package Settings",
+				"mnemonic": "P",
+				"children":
+				[
+					{
+						"caption": "Bootstrap 4 Autocomplete",
+						"children":
+						[
+							{
+								"caption": "Settings",
+								"command": "edit_settings",
+								"args":
+								{
+									"base_file": "${packages}/Bootstrap 4 Autocomplete/Bootstrap 4 Autocomplete.sublime-settings",
+									"default": "{\n\t$0\n}\n"
+								}
+							},
+							{ "caption": "-" },
+							{
+								"caption": "Menus",
+								"children":
+								[
+									{
+										"caption": "Main Menu",
+										"command": "z_edit_settings",
+										"args":
+										{
+											"file": "${packages}/Bootstrap 4 Autocomplete/Main.sublime-menu",
+											"is_parent_setting": "1",
+											"contents": "[\n\t$0\n]\n"
+										}
+									}
+								]
+							},
+							{ "caption": "-" },
+							{
+								"caption": "README",
+								"command": "open_file",
+								"args": { "file": "${packages}/Bootstrap 4 Autocomplete/README.md" }
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+]
