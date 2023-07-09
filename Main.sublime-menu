@@ -1,14 +1,14 @@
 [
 	{
-		"id": "preferences",
 		"caption": "Preferences",
 		"mnemonic": "n",
+		"id": "preferences",
 		"children":
 		[
 			{
-				"id": "package-settings",
 				"caption": "Package Settings",
 				"mnemonic": "P",
+				"id": "package-settings",
 				"children":
 				[
 					{
@@ -26,20 +26,83 @@
 							},
 							{ "caption": "-" },
 							{
+								"caption": "Key Bindings",
+								"command": "z_edit_settings",
+								"args":
+								{
+									"base_file": "${packages}/Bootstrap 4 Autocomplete/Default (${platform}).sublime-keymap",
+									"default": "[\n\t$0\n]\n"
+								}
+							},
+							{ "caption": "-" },
+							{
 								"caption": "Menus",
 								"children":
 								[
+									{
+										"caption": "Context Menu",
+										"command": "z_edit_settings",
+										"args":
+										{
+											"base_file": "${packages}/Bootstrap 4 Autocomplete/Context.sublime-menu",
+											"default": "[\n\t$0\n]\n"
+										}
+									},
 									{
 										"caption": "Main Menu",
 										"command": "z_edit_settings",
 										"args":
 										{
-											"is_parent_setting": "1",
 											"base_file": "${packages}/Bootstrap 4 Autocomplete/Main.sublime-menu",
+											"default": "[\n\t$0\n]\n"
+										}
+									},
+									{
+										"caption": "Side Bar Menu",
+										"command": "z_edit_settings",
+										"args":
+										{
+											"base_file": "${packages}/Bootstrap 4 Autocomplete/Side Bar.sublime-menu",
+											"default": "[\n\t$0\n]\n"
+										}
+									},
+									{
+										"caption": "Side Bar Open Files Menu",
+										"command": "z_edit_settings",
+										"args":
+										{
+											"base_file": "${packages}/Bootstrap 4 Autocomplete/Tab Sidebar Context.sublime-menu",
+											"default": "[\n\t$0\n]\n"
+										}
+									},
+									{
+										"caption": "Tab Menu",
+										"command": "z_edit_settings",
+										"args":
+										{
+											"base_file": "${packages}/Bootstrap 4 Autocomplete/Tab Context.sublime-menu",
+											"default": "[\n\t$0\n]\n"
+										}
+									},
+									{
+										"caption": "Widget Menu",
+										"command": "z_edit_settings",
+										"args":
+										{
+											"base_file": "${packages}/Bootstrap 4 Autocomplete/Widget Context.sublime-menu",
 											"default": "[\n\t$0\n]\n"
 										}
 									}
 								]
+							},
+							{
+								"caption": "Commands",
+								"command": "z_edit_settings",
+								"args":
+								{
+									"base_file": "${packages}/Bootstrap 4 Autocomplete/Default.sublime-commands",
+									"default": "[\n\t$0\n]\n"
+								}
 							},
 							{ "caption": "-" },
 							{
